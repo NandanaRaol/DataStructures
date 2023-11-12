@@ -1,0 +1,101 @@
+/*A. The Punisher
+time limit per test2 s.
+memory limit per test256 MB
+inputstandard input
+outputstandard output
+Frank Castle, known as The Punisher, is on a mission to eliminate Jigsaw's criminal empire. His first target is a journal that contains crucial information about Jigsaw's operation. The journal has passed through the hands of several individuals, and Frank wants to ensure that none of them are compromised by Jigsaw.
+
+He has a list of n
+ people who had possession of the journal in chronological order. Your task is to determine, for each person, whether they had the journal in their possession at any point before or not.
+
+For each name si
+ in the i
+-th line, output "YES" (without quotes) if there exists an index j
+ such that si=sj
+ and j<i
+, otherwise, output "NO" (without quotes).
+
+Input
+First line of input contains an integer n
+ (1≤n≤100
+) — the number of names in the list.
+
+Next n
+ lines each contain a string si
+, consisting of lowercase English letters. The length of each string is between 1
+ and 100
+.
+
+Output
+Output n
+ lines each containing either "YES" or "NO" (without quotes), depending on whether this string was already present in the stream or not.
+
+You can print each letter in any case (upper or lower).
+
+Examples
+inputCopy
+6
+tom
+lucius
+ginny
+harry
+ginny
+harry
+outputCopy
+NO
+NO
+NO
+NO
+YES
+YES
+inputCopy
+3
+a
+a
+a
+outputCopy
+NO
+YES
+YES
+Note
+In test case 1
+, for i=5
+ there exists j=3
+ such that si=sj
+ and j<i
+, which means that answer for i=5
+ is "YES".
+
+*/
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+	int n;
+	cin>>n;
+	vector<string>s(n);
+	for(int i=0;i<n;i++)
+	{
+		cin>>s[i];
+	}
+	if(n>0)
+	   cout<<"NO"<<endl;
+	for(int i=1;i<n;i++)
+	{
+		int c=0,k=0;
+		for(int j=0;j<i;j++)
+		{
+			if(s[i]==s[j])
+			{
+				cout<<"YES"<<endl;
+				k=1;
+				break;
+			}
+		}
+		if(k==0)
+		{
+			cout<<"NO"<<endl;
+		}
+	}
+
+}
